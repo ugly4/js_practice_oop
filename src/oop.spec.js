@@ -69,9 +69,33 @@ describe('ООП', () => {
         });
 
         it('может создаться из массива', () => {
+            const queue = new core.Queue([1, 2, 3, 5]);
+            // TODO:
+            assert.deepStrictEqual(queue.values, [1, 2, 3, 5]);
+        });
+
+        it('проверка метода добавления', () => {
             const queue = new core.Queue([1,2,3,5]);
             // TODO:
-            assert.strictEqual(true, true);
+            queue.add(6);
+            assert.deepStrictEqual(queue.values, [1, 2, 3, 5, 6]);
         });
+
+        it('проверка метода извлечения первого элемента', () => {
+            const queue = new core.Queue([1,2,3,5]);
+            // TODO:
+            const res = queue.getElement();
+            assert.strictEqual(res, 1);
+            assert.strictEqual(new core.Queue().getElement(), false);
+        });
+
+        it('проверка метода удаления элемента', () => {
+            const queue = new core.Queue([1,2,3,5]);
+            // TODO:
+            queue.deleteElement();
+            assert.deepStrictEqual(queue.values, [2, 3, 5]);
+            //assert.strictEqual(new core.Queue().deleteElement(), false);
+        });
+
     });
 });
