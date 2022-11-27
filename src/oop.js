@@ -43,21 +43,12 @@ class Queue {
         this.values = array;
     }
 
-    add(x){
+    push(x){
         this.values.push(x);
     }
 
-    isEmpty() {
-        return this.values.length === 0;
-    }
-
-    getElement(){
-        if (this.isEmpty()) return false;
-        return this.values[0];
-    }
-
-    deleteElement(){
-        if (this.isEmpty()) return false;
+    pop(){
+        if (!this.values.length) return false;
         return this.values.shift();
     }
     

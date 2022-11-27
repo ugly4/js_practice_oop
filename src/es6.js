@@ -6,7 +6,8 @@
 // Напишите функцию, которая принимает ФИО пользователя и возвращает
 // строку формата Имя Фамилия
 function fioToName(fio) {
-    return (fio.split(' '))[1] + ' ' + (fio.split(' '))[0];
+    let [lastName, firstName] = fio.split(' ');
+    return `${firstName} ${lastName}`;
 }
 
 // преобразуйте массив чисел так, чтобы в нем остались только
@@ -21,8 +22,11 @@ function filterUnique(array) {
 // ваша задача определить, во сколько раз зарплата самого высокооплачиваемого
 // сотрудника превышает зарплату самого низкооплачиваемого
 // присмотритесь к методу .reduce
-function calculateSalaryDifference(array = null) {
-    return (array === null || !array.length) ? false : (array.reduce((max, num) => (max > num ? max : num))/array.reduce((min, num) => (min < num ? min : num)));
+function calculateSalaryDifference(array = []) {
+    if (!array.length) return false;
+    let max = array.reduce((max, num) => (max > num ? max : num));
+    let min = array.reduce((min, num) => (min < num ? min : num));
+    return max/min;
 }
 
 // Реализуйте класс "словарь слов" (как толковый словарь)
@@ -36,6 +40,16 @@ class Dictionary {
         this.dict = new Map();
     }
 
+    set(key, value){
+        if (typeof(key) !== 'string' || typeof(value) !== 'string') return false;
+        this.dict.set(key, value);
+        return true;
+    }
+
+    get(key){
+        if (typeof(key) !== 'string' || !this.dict.has(key)) return false;
+        return this.dict.get(key);
+    }
 }
 
 module.exports = {

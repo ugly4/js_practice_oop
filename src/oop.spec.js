@@ -57,14 +57,19 @@ describe('ООП', () => {
 
     describe('#Queue', () => {
         it('проверка массивом', () => {
-            const queue = new core.Queue();
+            const queue1 = new core.Queue();
+            const queue2 = new core.Queue([2,3,4]);
             // TODO:
-            assert.strictEqual(true, true);
+            // Здесь я делаю проверку на "экземпляр класса создаётся", как в номере с классом Dictionary
+            assert.strictEqual(!!queue1, true);
+            assert.strictEqual(!!queue2, true);
         });
 
+        
         it('проверка на пограничные случаи', () => {
             const queue = new core.Queue();
             // TODO:
+            //тесты по данной теме описаны ниже
             assert.strictEqual(true, true);
         });
 
@@ -77,24 +82,16 @@ describe('ООП', () => {
         it('проверка метода добавления', () => {
             const queue = new core.Queue([1,2,3,5]);
             // TODO:
-            queue.add(6);
+            queue.push(6);
             assert.deepStrictEqual(queue.values, [1, 2, 3, 5, 6]);
         });
 
-        it('проверка метода извлечения первого элемента', () => {
+        it('проверка метода извлечения элемента', () => {
             const queue = new core.Queue([1,2,3,5]);
             // TODO:
-            const res = queue.getElement();
-            assert.strictEqual(res, 1);
-            assert.strictEqual(new core.Queue().getElement(), false);
-        });
-
-        it('проверка метода удаления элемента', () => {
-            const queue = new core.Queue([1,2,3,5]);
-            // TODO:
-            queue.deleteElement();
+            queue.pop();
             assert.deepStrictEqual(queue.values, [2, 3, 5]);
-            //assert.strictEqual(new core.Queue().deleteElement(), false);
+            assert.strictEqual(new core.Queue().pop(), false);
         });
 
     });
