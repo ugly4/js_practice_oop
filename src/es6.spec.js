@@ -43,5 +43,24 @@ describe('es6', () => {
             // TODO
             assert.strictEqual(!!dic, true);
         });
+
+        it('проверка добавления', () => {
+            const dic = new core.Dictionary();
+
+            // TODO
+            assert.strictEqual(dic.set(2,4), false);
+            assert.strictEqual(dic.set('A','B'), true);
+        });
+
+        it('проверка извлечения элемента', () => {
+            const dic = new core.Dictionary();
+
+            // TODO
+            assert.strictEqual(dic.get('A'), false);
+            dic.set('A','B');
+            assert.strictEqual(dic.get(2), false);
+            assert.strictEqual(dic.get('A'), 'B');
+            assert.strictEqual(dic.get('C'), false);
+        });
     });
 });
